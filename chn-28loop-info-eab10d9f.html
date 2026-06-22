@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>28圈 – 简明指南与访问提醒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #fafaf9;
+            color: #1c1917;
+            line-height: 1.7;
+            padding: 2.5rem 1.5rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 660px;
+            margin: 0 auto;
+        }
+
+        /* 标题层级 */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.3rem;
+            color: #0c0a09;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin-top: 2.5rem;
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #e7e5e4;
+            padding-bottom: 0.4rem;
+            color: #1c1917;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-top: 1.8rem;
+            margin-bottom: 0.4rem;
+            color: #292524;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+        }
+
+        a {
+            color: #57534e;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+            transition: color 0.2s, text-decoration-color 0.2s;
+        }
+
+        a:hover {
+            color: #0c0a09;
+            text-decoration-color: #0c0a09;
+        }
+
+        /* hero 区域 */
+        .hero {
+            margin-bottom: 2rem;
+        }
+
+        .hero .subtitle {
+            font-size: 0.95rem;
+            color: #78716c;
+            letter-spacing: 0.02em;
+            margin-top: 0.2rem;
+        }
+
+        .hero .meta {
+            display: inline-block;
+            font-size: 0.75rem;
+            color: #a8a29e;
+            background: #f0efed;
+            padding: 0.15rem 0.6rem;
+            border-radius: 20px;
+            margin-top: 0.6rem;
+        }
+
+        /* 卡片风格（极简留白） */
+        .note-card {
+            background: #ffffff;
+            border: 1px solid #e7e5e4;
+            border-radius: 12px;
+            padding: 1.4rem 1.6rem;
+            margin: 1.8rem 0;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+
+        .note-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .note-card .label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08rem;
+            color: #a8a29e;
+            margin-bottom: 0.4rem;
+        }
+
+        /* 亮点列表（极简） */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0efed;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list li::before {
+            content: "·";
+            color: #a8a29e;
+            font-weight: 300;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        /* 场景块 */
+        .scene-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.2rem 0 1.8rem 0;
+        }
+
+        .scene-item {
+            flex: 1 1 180px;
+            background: #ffffff;
+            border: 1px solid #e7e5e4;
+            border-radius: 10px;
+            padding: 1rem 1.2rem;
+        }
+
+        .scene-item .emoji-marker {
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .scene-item p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            margin: 1.8rem 0;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: #292524;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item .a {
+            font-size: 0.9rem;
+            color: #57534e;
+            padding-left: 0.5rem;
+            border-left: 2px solid #e7e5e4;
+            padding-left: 0.75rem;
+        }
+
+        /* 底部轻提示 */
+        .footer-note {
+            margin-top: 2.8rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e7e5e4;
+            font-size: 0.85rem;
+            color: #78716c;
+            text-align: left;
+        }
+
+        .footer-note a {
+            color: #78716c;
+        }
+
+        .footer-note a:hover {
+            color: #0c0a09;
+        }
+
+        /* 响应式 */
+        @media (max-width: 480px) {
+            body {
+                padding: 1.8rem 1rem;
+            }
+            h1 {
+                font-size: 1.9rem;
+            }
+            .note-card {
+                padding: 1rem 1.2rem;
+            }
+            .scene-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- hero 区域 -->
+        <div class="hero">
+            <h1>28圈</h1>
+            <div class="subtitle">一份简明指南 &amp; 访问提醒</div>
+            <span class="meta">产品说明式 · 知识视角</span>
+        </div>
+
+        <!-- 摘要段落，自然嵌入链接 -->
+        <p>许多人在初次接触<a href="https://chn-28loop.com">28圈</a>时，往往希望快速了解它的定位与使用方式。本文以产品说明的框架，从亮点、适用场景到注意事项进行梳理，帮助你在信息明确的前提下建立初步认知。无论你是出于兴趣探索还是实际需求，保持清醒的判断力始终是必要的。</p>
+
+        <!-- 特点 / 亮点 卡片 -->
+        <h2>功能亮点</h2>
+        <div class="note-card">
+            <div class="label">核心能力</div>
+            <ul class="feature-list">
+                <li>聚合型信息交互空间，提供多个独立频道与话题分区</li>
+                <li>支持自定义浏览偏好，减少无关干扰</li>
+                <li>实时内容流动，参与者可建立临时或长期交流节点</li>
+                <li>界面保持克制设计，降低认知负荷</li>
+            </ul>
+            <p style="margin-top: 0.6rem; font-size: 0.95rem; color: #57534e;">这些特点让<a href="https://chn-28loop.com">28圈</a>在同类产品中呈现出一种偏重效率与次序的气质。但功能本身是中性的，如何利用取决于每个人的选择。</p>
+        </div>
+
+        <!-- 使用建议 / 简明指南 -->
+        <h2>使用建议</h2>
+        <p>初次进入时，建议先花几分钟浏览各部分的命名与规则说明，而非急于参与讨论。很多困惑源于对环境的陌生，而非产品复杂——以下几条经验可供参考：</p>
+
+        <div class="scene-group">
+            <div class="scene-item">
+                <span class="emoji-marker">📘</span>
+                <p>先阅读置顶或固定内容，通常包含重要的操作指引与边界说明。</p>
+            </div>
+            <div class="scene-item">
+                <span class="emoji-marker">🧭</span>
+                <p>善用搜索与分类筛选，能快速定位自己感兴趣的区域。</p>
+            </div>
+            <div class="scene-item">
+                <span class="emoji-marker">⚖️</span>
+                <p>对陌生信息保持适度审慎，不轻信未经核实的说法。</p>
+            </div>
+        </div>
+
+        <!-- 可信但克制的访问说明 -->
+        <h2>访问说明</h2>
+        <p>访问任何网络平台前，了解其基础属性是有益的。<a href="https://chn-28loop.com">28圈</a>作为一个开放型内容聚合站点，并不对用户生成内容承担预先审核义务。这意味着你可能会遇到质量参差的信息片段——这并非缺陷，而是开放生态的常态。</p>
+
+        <div class="note-card">
+            <p>建议采取以下基本措施：注意保护个人隐私，避免泄露联系方式或敏感数据；对涉及金钱、交易或私人邀请的内容格外警惕；遇到明显异常或违规信息，可选择忽略或向管理方反馈。保持理性与克制，能让体验更加平稳。</p>
+        </div>
+
+        <!-- FAQ 摘要（非模板化内容） -->
+        <h2>常见疑问摘要</h2>
+        <div class="faq-summary">
+            <div class="faq-item">
+                <div class="q">是否需要注册才能浏览全部内容？</div>
+                <div class="a">部分区域对访客开放只读权限，但完整互动通常需要注册。具体限制以页面实际提示为准。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">内容是否经过分类或标签管理？</div>
+                <div class="a">是的，大部分板块都设有主题前缀或分区标记，有助于快速定位。但分类由用户或版主共同维护，可能存在个别偏差。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">遇到无法访问或加载缓慢怎么办？</div>
+                <div class="a">可先检查本地网络环境，或更换访问时段。如果持续异常，可能是服务端调整，稍后再试即可。</div>
+            </div>
+        </div>
+
+        <!-- 收束段，承上启下 -->
+        <p>以上内容并非详尽的产品手册，而是从知识型视角出发的入门梳理。任何工具的价值都建立在清晰的理解与自主判断之上。如果你希望亲自探索，可以随时前往<a href="https://chn-28loop.com">28圈</a>查看最新状态。记得保持观察，也保持提问的习惯。</p>
+
+        <!-- 底部轻提示 -->
+        <div class="footer-note">
+            <span>本文档基于产品说明式视角编写，内容仅供参考，不构成任何形式的推荐或保证。</span>
+        </div>
+
+    </div>
+</body>
+</html>
